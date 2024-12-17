@@ -1,6 +1,5 @@
 package pro.sky.skyspringhw5;
 
-import java.util.Objects;
 
 public class Employee {
     private static int count;
@@ -10,7 +9,6 @@ public class Employee {
     private double salary;
 
 
-    // Constructor
     public Employee(String fullName, int department, double salary) {
         this.iD = ++count;
         this.fullName = fullName;
@@ -19,7 +17,6 @@ public class Employee {
     }
 
 
-    // Get && Set
     public String getFullName() {
         return fullName;
     }
@@ -44,7 +41,7 @@ public class Employee {
         return iD;
     }
 
-    // toString
+
     @Override
     public String toString() {
         return "Сотрудник {" +

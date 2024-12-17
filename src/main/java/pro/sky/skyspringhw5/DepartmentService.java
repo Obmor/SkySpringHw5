@@ -35,14 +35,18 @@ public class DepartmentService {
 
     public Map<Integer, List<Employee>> getAllEmployeesByDepartment(Integer department) {
         List<Employee> employees = employeeService.getAllEmployees();
-        return employees.stream()
-                .filter(employee -> employee.getDepartment().equals(department))
-                .collect(Collectors.groupingBy(Employee::getDepartment));
+        if (employees != null) {
+            return employees.stream()
+                    .filter(employee -> employee.getDepartment().equals(department))
+                    .collect(Collectors.groupingBy(Employee::getDepartment));
+        } else return null;
     }
 
     public Map<Integer, List<Employee>> getAllEmployeesByDepartment() {
         List<Employee> employees = employeeService.getAllEmployees();
-        return employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment));
+        if (employees != null) {
+            return employees.stream()
+                    .collect(Collectors.groupingBy(Employee::getDepartment));
+        } else return null;
     }
 }
