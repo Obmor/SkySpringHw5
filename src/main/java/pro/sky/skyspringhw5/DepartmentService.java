@@ -19,18 +19,26 @@ public class DepartmentService {
 
     public Employee getEmployeeWithMaxSalaryByDept(Integer department) {
         List<Employee> employees = employeeService.getAllEmployees();
-        return employees.stream()
-                .filter(employee -> employee.getDepartment().equals(department))
-                .max(Comparator.comparingInt(Employee::getDepartment))
-                .orElse(null);
+        if (employees != null) {
+            return employees.stream()
+                    .filter(employee -> employee.getDepartment().equals(department))
+                    .max(Comparator.comparingInt(Employee::getDepartment))
+                    .orElse(null);
+        } else {
+            return null;
+        }
     }
 
     public Employee getEmployeeWithMinSalaryByDept(Integer department) {
         List<Employee> employees = employeeService.getAllEmployees();
-        return employees.stream()
-                .filter(employee -> employee.getDepartment().equals(department))
-                .min(Comparator.comparingInt(Employee::getDepartment))
-                .orElse(null);
+        if (employees != null) {
+            return employees.stream()
+                    .filter(employee -> employee.getDepartment().equals(department))
+                    .min(Comparator.comparingInt(Employee::getDepartment))
+                    .orElse(null);
+        } else {
+            return null;
+        }
     }
 
     public Map<Integer, List<Employee>> getAllEmployeesByDepartment(Integer department) {
@@ -39,7 +47,9 @@ public class DepartmentService {
             return employees.stream()
                     .filter(employee -> employee.getDepartment().equals(department))
                     .collect(Collectors.groupingBy(Employee::getDepartment));
-        } else return null;
+        } else {
+            return null;
+        }
     }
 
     public Map<Integer, List<Employee>> getAllEmployeesByDepartment() {
@@ -47,6 +57,8 @@ public class DepartmentService {
         if (employees != null) {
             return employees.stream()
                     .collect(Collectors.groupingBy(Employee::getDepartment));
-        } else return null;
+        } else {
+            return null;
+        }
     }
 }

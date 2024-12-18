@@ -69,7 +69,9 @@ public class Employee {
             return false;
         if (fullName == null) {
             return other.fullName == null;
-        } else return fullName.equals(other.fullName);
+        } else {
+            return fullName.equals(other.fullName);
+        }
     }
 
     @Override
